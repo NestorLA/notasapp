@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { db } from "../firebase";
 
 const NoteForm = (props) => {
   const initialStateValues = {
@@ -18,6 +19,19 @@ const NoteForm = (props) => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
   };
+
+  const getNoteById = async (id) => {
+    const doc = await db.collection("notes").doc(id).get();
+    setValues({...doc.data()})
+  };
+
+  useEffect(() => {
+    if (props.currentId === "") {
+      setValues({ ...initialStateValues });
+    } else {
+      getNoteById(props.currentId);
+    }
+  }, [props.currentId]);
 
   return (
     <form className="card card-body" onSubmit={handleSubmit}>
@@ -44,7 +58,9 @@ const NoteForm = (props) => {
           value={values.note}
         ></textarea>
       </div>
-      <button className="btn btn-primary btn-block">Guardar</button>
+      <button className="btn btn-primary btn-block">
+      {props.currentId === "" ? "Guardar" : "Actualizar"}
+      </button>
     </form>
   );
 };
