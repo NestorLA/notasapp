@@ -31,6 +31,7 @@ const NoteForm = (props) => {
     } else {
       getNoteById(props.currentId);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.currentId]);
 
   return (
