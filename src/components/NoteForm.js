@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { db } from "../firebase";
+import { toast } from "react-toastify";
 
 const NoteForm = (props) => {
   const initialStateValues = {
@@ -11,8 +12,16 @@ const NoteForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.addOrEditNote(values);
-    setValues({ ...initialStateValues });
+    if (values.note === "") {
+      toast("Nota invalida! Agrega texto por favor!", {
+        type: "warning",
+        autoClose: 2000,
+        position: "top-center",
+      });
+    } else {
+      props.addOrEditNote(values);
+      setValues({ ...initialStateValues });
+    }
   };
 
   const handleInputChange = (e) => {
@@ -22,7 +31,7 @@ const NoteForm = (props) => {
 
   const getNoteById = async (id) => {
     const doc = await db.collection("notes").doc(id).get();
-    setValues({...doc.data()})
+    setValues({ ...doc.data() });
   };
 
   useEffect(() => {
@@ -31,7 +40,7 @@ const NoteForm = (props) => {
     } else {
       getNoteById(props.currentId);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.currentId]);
 
   return (
@@ -60,7 +69,7 @@ const NoteForm = (props) => {
         ></textarea>
       </div>
       <button className="btn btn-primary btn-block">
-      {props.currentId === "" ? "Guardar" : "Actualizar"}
+        {props.currentId === "" ? "Guardar" : "Actualizar"}
       </button>
     </form>
   );

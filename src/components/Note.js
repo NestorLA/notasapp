@@ -23,6 +23,7 @@ const Note = () => {
         autoClose: 2500,
         position: "top-center",
       });
+      setCurrentId("");
     }
   };
 
