@@ -58,37 +58,43 @@ const Note = () => {
 
   return (
     <>
-      <div className="col-md-4 p-2">
+      <div className="col-lg-4 p-2">
         <NoteForm {...{ addOrEditNote, currentId, notes }} />
       </div>
 
-      <div className="col-md-8 p-2">
-        {notes.map((note) => (
-          <div className="card mb-1" key={note.id}>
-            <div className="card-body">
-              <div className="d-flex justify-content-between">
-                <h5>{note.title}</h5>
-                <div>
-                  <i
-                    className="material-icons text-warning mr-2 cursor-pointer"
-                    onClick={() => setCurrentId(note.id)}
-                  >
-                    create
-                  </i>
-                  <i
-                    className="material-icons text-danger cursor-pointer"
-                    onClick={() => deleteNote(note.id)}
-                  >
-                    close
-                  </i>
+      {notes.length !== 0 ? (
+        <div className="col-lg-8 p-2">
+          {notes.map((note) => (
+            <div className="card mb-1" key={note.id}>
+              <div className="card-body">
+                <div className="d-flex justify-content-between">
+                  <h5>{note.title}</h5>
+                  <div>
+                    <i
+                      className="material-icons text-warning mr-2 cursor-pointer"
+                      onClick={() => setCurrentId(note.id)}
+                    >
+                      create
+                    </i>
+                    <i
+                      className="material-icons text-danger cursor-pointer"
+                      onClick={() => deleteNote(note.id)}
+                    >
+                      close
+                    </i>
+                  </div>
                 </div>
-              </div>
 
-              <p>{note.note}</p>
+                <p>{note.note}</p>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      ) : (
+        <h4 className="font-weight-bold p-2 ">
+          No hay notas. Puedes agregar una!
+        </h4>
+      )}
     </>
   );
 };
