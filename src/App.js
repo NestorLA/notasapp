@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 
 // router
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router} from "react-router-dom";
 
 // components
 import Inicio from "./components/Inicio";

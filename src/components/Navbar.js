@@ -3,7 +3,7 @@ import React from "react";
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-primary border-bottom-0">
-      <a className="navbar-brand" href="#">
+      <a className="navbar-brand" href="#!">
         NotasApp
       </a>
       <button
@@ -20,12 +20,12 @@ const Navbar = () => {
       <div className="collapse navbar-collapse " id="navbarNav">
         <ul className="navbar-nav ml-auto">
           <li className="nav-item active">
-            <a className="nav-link" href="#">
+            <a className="nav-link" href="#!">
               Login <span class="sr-only"></span>
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
+            <a className="nav-link" href="#!">
               Registro
             </a>
           </li>
