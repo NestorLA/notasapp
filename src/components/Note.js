@@ -71,7 +71,7 @@ const Note = () => {
                   <h5>{note.title}</h5>
                   <div>
                     <i
-                      className="material-icons text-warning mr-2 cursor-pointer"
+                      className="material-icons text-info mr-2 cursor-pointer"
                       onClick={() => setCurrentId(note.id)}
                     >
                       create

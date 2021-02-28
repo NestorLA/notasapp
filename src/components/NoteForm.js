@@ -68,7 +68,7 @@ const NoteForm = (props) => {
           value={values.note}
         ></textarea>
       </div>
-      <button className="btn btn-primary btn-block">
+      <button className="btn btn-secondary btn-block">
         {props.currentId === "" ? "Guardar" : "Actualizar"}
       </button>
     </form>
