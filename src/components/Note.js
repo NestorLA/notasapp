@@ -72,12 +72,16 @@ const Note = () => {
                   <div>
                     <i
                       className="material-icons text-info mr-2 cursor-pointer"
+                      data-toggle="tooltip"
+                      data-placement="top"
+                      title="Editar nota"
                       onClick={() => setCurrentId(note.id)}
                     >
                       create
                     </i>
                     <i
                       className="material-icons text-danger cursor-pointer"
+                      data-toggle="tooltip" data-placement="top" title="Borrar nota"
                       onClick={() => deleteNote(note.id)}
                     >
                       close
