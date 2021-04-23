@@ -28,7 +28,7 @@ const [loading, setLoading] = useState(false)
 
   return (
     <Router>
-    { loading ? <Spinner /> :   <>  <Navbar />
+    { loading ? <div className="d-flex align-self-center"><Spinner /> </div>:   <>  <Navbar />
       <Inicio /> </> }
   
     </Router>
