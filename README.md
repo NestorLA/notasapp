@@ -1,5 +1,15 @@
 # NotasApp - Aplicación de notas.
 
+### DEMO: https://notasapp.vercel.app/
+
+Aplicación para guardar notas, poder borrarlas y editarlas de forma simple.
+
+## Tecnologías utilizadas:
+
+* React.
+* Firebase.
+* Bootswatch
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
