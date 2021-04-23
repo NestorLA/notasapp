@@ -26,8 +26,8 @@ const [loading, setLoading] = useState(false)
 
   return (
     <Router>
-    { loading ? <Spinner /> :     <Navbar />
-      <Inicio />}
+    { loading ? <Spinner /> :   <>  <Navbar />
+      <Inicio /> </> }
   
     </Router>
   );
