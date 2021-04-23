@@ -45,13 +45,10 @@ const Note = () => {
         docs.push({ ...doc.data(), id: doc.id });
       });
       setNotes(docs);
-
-      console.log(docs);
     });
   };
 
   useEffect(() => {
-    console.log(notes);
     getNotes();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
