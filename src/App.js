@@ -14,12 +14,21 @@ import "react-toastify/dist/ReactToastify.css";
 
 function App() {
 
-const [loading, setLoading] = useState(true)
+const [loading, setLoading] = useState(false)
+
+ useEffect(() => {
+    setLoading(true);
+
+  const timeout = setTimeout(() => {
+      setLoading(false)
+    }, 2000);
+  }, []);
 
   return (
     <Router>
-      <Navbar />
-      <Inicio />
+    { loading ? <Spinner /> :     <Navbar />
+      <Inicio />}
+  
     </Router>
   );
 }
