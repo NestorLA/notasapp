@@ -22,6 +22,7 @@ const [loading, setLoading] = useState(false)
     const timer = setTimeout(() => {
       setLoading(false);
     }, 2000);
+    console.log(timer)
   }, []);
 
 
